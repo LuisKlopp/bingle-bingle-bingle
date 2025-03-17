@@ -52,7 +52,7 @@ export default function Home() {
           "#a29e1c",
           "#4e2bae",
         ]}
-        fontSize={20}
+        fontSize={22}
         textColors={["#ffffff"]}
         onStopSpinning={() => setMustSpin(false)}
       />
