@@ -38,7 +38,7 @@ export default function Home() {
   };
 
   return (
-    <div className="w-full h-screen flex flex-col justify-center items-center">
+    <div className="w-full h-[100dvh] flex flex-col justify-center items-center">
       <p className="text-xl font-bold mb-4">단어로 문장 만들기!</p>
 
       <Wheel
