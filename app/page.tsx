@@ -1,65 +1,23 @@
-"use client";
-
-import dynamic from "next/dynamic";
-import { useState } from "react";
-
-const Wheel = dynamic(
-  () => import("react-custom-roulette").then((mod) => mod.Wheel),
-  {
-    ssr: false,
-  }
-);
-
-const words = [
-  { option: "우정" },
-  { option: "소망" },
-  { option: "사랑" },
-  { option: "행복" },
-  { option: "기쁨" },
-  { option: "희망" },
-  { option: "평화" },
-  { option: "믿음" },
-  { option: "용기" },
-  { option: "감사" },
-  { option: "온기" },
-  { option: "조화" },
-  { option: "배려" },
-  { option: "설렘" },
-];
+import Link from "next/link";
 
 export default function Home() {
-  const [mustSpin, setMustSpin] = useState(false);
-  const [prizeNumber, setPrizeNumber] = useState(0);
-
-  const handleSpinClick = () => {
-    const newPrizeNumber = Math.floor(Math.random() * words.length);
-    setPrizeNumber(newPrizeNumber);
-    setMustSpin(true);
-  };
-
   return (
-    <div className="w-full h-[100dvh] flex flex-col justify-center items-center">
-      <p className="text-xl font-bold mb-4">단어로 문장 만들기!</p>
-
-      <Wheel
-        mustStartSpinning={mustSpin}
-        prizeNumber={prizeNumber}
-        data={words}
-        backgroundColors={[
-          "#b21414",
-          "#197ea9",
-          "#20b47b",
-          "#a29e1c",
-          "#4e2bae",
-        ]}
-        fontSize={22}
-        textColors={["#ffffff"]}
-        onStopSpinning={() => setMustSpin(false)}
-      />
-
-      <button onClick={handleSpinClick} className="button-base custom-button">
-        돌려 돌려 돌림판
-      </button>
+    <div className="w-full min-h-screen flex flex-col justify-center items-center bg-[#f9f7f1]">
+      <div className="p-4 text-2xl font-extrabold">단어뽑기</div>
+      <div className="flex justify-center w-full gap-4">
+        <Link
+          href="/junior"
+          className="mb-10 rounded-full bg-[#417ed9] px-6 py-3 text-lg font-bold text-white shadow-md transition-all"
+        >
+          초급 🎲
+        </Link>
+        <Link
+          href="/middle"
+          className="mb-10 rounded-full bg-[#6741d9] px-6 py-3 text-lg font-bold text-white shadow-md transition-all"
+        >
+          중급 🎲
+        </Link>
+      </div>
     </div>
   );
 }
