@@ -101,7 +101,7 @@ export default function MiddlePage() {
       <div className="w-full flex justify-center gap-8 flex-col items-center">
         {currentWord && (
           <div
-            className={`text-3xl font-bold text-[#3b3b3b] ${
+            className={`text-[52px] font-bold text-[#3b3b3b] ${
               animate ? "animate-pop" : ""
             }`}
           >
