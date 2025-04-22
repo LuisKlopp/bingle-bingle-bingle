@@ -1,30 +1,55 @@
 // app/junior/page.tsx
 "use client";
 
+import Link from "next/link";
 import { useState, useRef } from "react";
 
 const WORDS = [
+  // 음식
   "사과",
   "빵",
   "김치",
   "콜라",
   "냉면",
+  "케이크",
+  "과자",
+  "커피",
+  "만두",
+  "떡볶이",
+  "수박",
+
+  // 동사
   "먹어요",
-  "마셔요",
+  "포장해요",
   "사요",
   "꺼내요",
   "줘요",
   "받아요",
+  "버려요",
+  "맛있어요",
+
+  // 장소 / 사람
   "냉장고",
-  "슈퍼",
+  "마트",
+  "시장",
   "식탁",
+  "바닥",
+  "상자",
   "동생",
   "형",
+  "할머니",
+  "이웃",
+  "친구",
+  "선생님",
+
+  // 시간
   "아까",
   "오늘",
   "방금",
   "내일",
   "어제",
+  "아침",
+  "점심",
 ];
 
 export default function JuniorPage() {
@@ -51,11 +76,14 @@ export default function JuniorPage() {
 
   return (
     <div className="flex h-screen flex-col items-center justify-center bg-[#f9f7f1]">
+      <Link href="/" className="absolute left-5 top-5 font-bold text-[#525252]">
+        뒤로가기
+      </Link>
       <button
         onClick={handleClick}
-        className="mb-10 rounded-full bg-[#417ed9] px-6 py-3 text-lg font-bold text-white shadow-md transition-all"
+        className="mb-10 button-base rounded-full bg-[#417ed9] px-6 py-3 text-lg font-bold text-white shadow-md transition-all"
       >
-        단어 뽑기 🎲
+        초급 단어 뽑기 🎲
       </button>
 
       {currentWord && (
