@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="w-full min-h-screen flex flex-col justify-center items-center bg-[#f9f7f1]">
+    <div className="w-full h-[100dvh] flex flex-col justify-center items-center bg-[#f9f7f1]">
       <div className="p-4 text-2xl font-extrabold">단어 뽑기</div>
       <div className="flex justify-center w-full gap-4">
         <Link

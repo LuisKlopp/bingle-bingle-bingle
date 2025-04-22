@@ -94,46 +94,48 @@ export default function MiddlePage() {
   };
 
   return (
-    <div className="flex h-screen flex-col items-center justify-center bg-[#f9f7f1]">
+    <div className="flex h-[100dvh] flex-col items-center justify-center bg-[#f9f7f1]">
       <Link href="/" className="absolute left-5 top-5 font-bold text-[#525252]">
         뒤로가기
       </Link>
-      <button
-        onClick={handleClick}
-        className="mb-10 button-base rounded-full bg-[#6741d9] px-6 py-3 text-lg font-bold text-white shadow-md transition-all"
-      >
-        중급 단어 뽑기 🎲
-      </button>
+      <div className="w-full flex justify-center gap-8 flex-col items-center">
+        {currentWord && (
+          <div
+            className={`text-3xl font-bold text-[#3b3b3b] ${
+              animate ? "animate-pop" : ""
+            }`}
+          >
+            {currentWord}
+          </div>
+        )}
 
-      {currentWord && (
-        <div
-          className={`text-3xl font-bold text-[#3b3b3b] ${
-            animate ? "animate-pop" : ""
-          }`}
+        <style jsx>{`
+          .animate-pop {
+            animation: pop 0.5s ease-out;
+          }
+
+          @keyframes pop {
+            0% {
+              transform: scale(0.3);
+              opacity: 0;
+            }
+            70% {
+              transform: scale(1.2);
+              opacity: 1;
+            }
+            100% {
+              transform: scale(1);
+            }
+          }
+        `}</style>
+
+        <button
+          onClick={handleClick}
+          className="mb-10 button-base rounded-full bg-[#6741d9] px-6 py-3 text-lg font-bold text-white shadow-md transition-all"
         >
-          {currentWord}
-        </div>
-      )}
-
-      <style jsx>{`
-        .animate-pop {
-          animation: pop 0.5s ease-out;
-        }
-
-        @keyframes pop {
-          0% {
-            transform: scale(0.3);
-            opacity: 0;
-          }
-          70% {
-            transform: scale(1.2);
-            opacity: 1;
-          }
-          100% {
-            transform: scale(1);
-          }
-        }
-      `}</style>
+          중급 단어 뽑기 🎲
+        </button>
+      </div>
     </div>
   );
 }
